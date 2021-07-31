@@ -12,7 +12,7 @@ import cards from "./cards";
 const Cards = ({ setScore, score }) => {
   let shuffledCards = cards;
   return (
-    <Grid container spacing={3} item xs={11}>
+    <Grid container spacing={3} item xs={11} justifyContent="center">
       {!score.over &&
         shuffledCards.map((c) => (
           <Grid item xs={2} key={c.id}>
@@ -93,15 +93,18 @@ const Cards = ({ setScore, score }) => {
           </Grid>
         ))}
       {score.over && (
-        <Button
-          onClick={() => setScore({ ...score, currentScore: 0, over: false })}
-        >
-          Restart
-        </Button>
+        <Grid item xs={1}>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => setScore({ ...score, currentScore: 0, over: false })}
+          >
+            Restart
+          </Button>
+        </Grid>
       )}
     </Grid>
   );
 };
 
 export default Cards;
-  

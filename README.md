@@ -1,6 +1,6 @@
-# Resume Builder
+# Memory Game
 
-A React app which allows users to create their own resume.
+A mini game made with React JS.
 
 [Live Demo](https://suxlike.github.io/memory-game/)
 

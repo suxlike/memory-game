@@ -19,23 +19,6 @@ const Cards = ({ setScore, score }) => {
             <Card>
               <CardActionArea
                 onClick={() => {
-                  // switch (c.clicked) {
-                  //   case false && score.currentScore === score.highScore:
-                  //     c.clicked = true;
-                  //     let s = score.currentScore;
-                  //     setScore({ ...score, currentScore: s + 1 });
-                  //     for (let i = shuffledCards.length - 1; i > 0; i--) {
-                  //       const j = Math.floor(Math.random() * i);
-                  //       const temp = shuffledCards[i];
-                  //       shuffledCards[i] = shuffledCards[j];
-                  //       shuffledCards[j] = temp;
-                  //     }
-                  //     break;
-
-                  //   default:
-                  //     console.log("game over");
-                  //     break;
-                  // }
                   if (
                     c.clicked === false &&
                     score.currentScore === score.highScore
@@ -97,7 +80,11 @@ const Cards = ({ setScore, score }) => {
           <Button
             variant="contained"
             color="secondary"
-            onClick={() => setScore({ ...score, currentScore: 0, over: false })}
+            onClick={() => {
+              setScore({ ...score, currentScore: 0, over: false });
+              shuffledCards.forEach((c) => (c.clicked = false));
+              console.log(shuffledCards);
+            }}
           >
             Restart
           </Button>

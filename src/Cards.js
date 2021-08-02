@@ -8,8 +8,34 @@ import {
   Button,
 } from "@material-ui/core";
 import cards from "./cards";
+import Baldur from "./img/baldur.png";
+import Bragi from "./img/bragi.png";
+import Freya from "./img/freya.png";
+import Freyr from "./img/freyr.png";
+import Frigg from "./img/frigg.png";
+import Heimdallr from "./img/heimdallr.png";
+import Loki from "./img/loki.png";
+import Njord from "./img/njord.png";
+import Odin from "./img/odin.png";
+import Thor from "./img/thor.png";
+import Thr from "./img/tyr.png";
+import Ymir from "./img/ymir.png";
 
 const Cards = ({ setScore, score }) => {
+  const imgs = [
+    Baldur,
+    Bragi,
+    Freya,
+    Freyr,
+    Frigg,
+    Heimdallr,
+    Loki,
+    Njord,
+    Odin,
+    Thor,
+    Thr,
+    Ymir,
+  ];
   let shuffledCards = cards;
   return (
     <Grid container spacing={3} item xs={11} justifyContent="center">
@@ -24,7 +50,7 @@ const Cards = ({ setScore, score }) => {
                     score.currentScore === score.highScore
                   ) {
                     c.clicked = true;
-                    let s = score.currentScore;
+                    const s = score.currentScore;
                     setScore({
                       ...score,
                       currentScore: s + 1,
@@ -38,7 +64,7 @@ const Cards = ({ setScore, score }) => {
                     }
                   } else if (c.clicked === false) {
                     c.clicked = true;
-                    let s = score.currentScore;
+                    const s = score.currentScore;
                     setScore({ ...score, currentScore: s + 1 });
                     for (let i = shuffledCards.length - 1; i > 0; i--) {
                       const j = Math.floor(Math.random() * i);
@@ -52,7 +78,7 @@ const Cards = ({ setScore, score }) => {
                   }
                 }}
               >
-                <CardMedia component="img" src={c.image} title={c.name} />
+                <CardMedia component="img" image={imgs[c.id]} title={c.name} />
                 <CardContent>
                   <Typography
                     gutterBottom
@@ -83,7 +109,6 @@ const Cards = ({ setScore, score }) => {
             onClick={() => {
               setScore({ ...score, currentScore: 0, over: false });
               shuffledCards.forEach((c) => (c.clicked = false));
-              console.log(shuffledCards);
             }}
           >
             Restart

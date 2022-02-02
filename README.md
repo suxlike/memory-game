@@ -2,7 +2,7 @@
 
 A mini game made with React JS.
 
-[Live Demo](https://suxlike.github.io/memory-game/)
+[Live Demo](https://utoker.github.io/memory-game/)
 
 ## Built with
 
